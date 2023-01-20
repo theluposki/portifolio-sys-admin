@@ -15,7 +15,7 @@ export const createTable = () => {
         );
       `);
     });
-    logger.info(`-[DB] created users table`)
+    logger.info(`-[DB] users table`)
   } catch (error) {
     logger.error(`-[DB] error creating user table`)
   }
