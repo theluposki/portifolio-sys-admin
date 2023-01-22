@@ -1,15 +1,20 @@
 import { Router } from "express"
 import multer from "multer"
-import { registerProfile } from "../controllers/profiles/createProfile.js"
 import { config } from "../config.js"
 import authenticated from "../middlewares/auth.js"
+import { registerProfile } from "../controllers/profiles/createProfile.js"
+import { updateImgProfileController } from "../controllers/profiles/updateImgProfile.js"
+import { updateProfileController } from "../controllers/profiles/updateProfile.js"
+import { updateImgFrontCoverController } from "../controllers/profiles/updateImgFrontCover.js"
 
 const router = Router()
 
 const upload = multer(config.multerConfig)
 
-const cpUpload = upload.fields([{ name: 'imgProfile', maxCount: 1 }, { name: 'imgFrontCover', maxCount: 1 }])
-//upload.single("imgProfile")
-router.post("/", authenticated, cpUpload, registerProfile)
+router.post("/", authenticated, registerProfile)
+router.post("/updateImgProfile", authenticated, upload.single("imgProfile"), updateImgProfileController)
+router.post("/updateImgFrontCover", authenticated, upload.single("imgFrontCover"), updateImgFrontCoverController)
+
+router.put("/", authenticated, updateProfileController)
 
 export default router

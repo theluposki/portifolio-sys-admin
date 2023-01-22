@@ -2,12 +2,16 @@ import { randomUUID } from "node:crypto"
 import { openDb } from "../../db/index.js";
 import { logger } from "../../logger.js";
 
+import { checkIfUserAlreadyHasProfile } from "./checkIfUserAlreadyHasProfile.js";
+
 export const createProfile = async (body, userId) => {
+  const profileUser = await checkIfUserAlreadyHasProfile(userId)
+
+  if(profileUser) return "you already have a profile"
+
   const { 
       messagemStatus,
       status,
-      imgProfile,
-      imgFrontCover,
       bio,
       telephone,
       birthDate,
@@ -15,7 +19,9 @@ export const createProfile = async (body, userId) => {
     } = body
 
   const id = randomUUID()
-  
+  const imgProfile = "blank-profile-picture.png"
+  const imgFrontCover = "blank-frontcover.jpg"
+
   try {
     
     openDb().then((db) => {

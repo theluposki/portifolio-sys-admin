@@ -2,3 +2,16 @@
 SELECT * FROM users WHERE email="luposki@mail.com"; 
 
 SELECT * FROM profiles;
+
+SELECT * FROM profiles WHERE "userId"="166a4472-8957-4e14-adb7-9dd2347d1a87";
+
+UPDATE profiles
+SET messagemStatus=?,
+    status=?,
+    imgProfile=?,
+    imgFrontCover=?,
+    bio=?,
+    telephone=?,
+    birthDate=?,
+    localization=?,
+WHERE id="166a4472-8957-4e14-adb7-9dd2347d1a87" 

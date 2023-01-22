@@ -1,6 +1,6 @@
-import { createProfile } from "../../services/profiles/createProfile.js"
+import { updateProfile } from "../../services/profiles/updateProfile.js"
 
-export const registerProfile = async (req, res) => {
+export const updateProfileController = async (req, res) => {
   const {
     messagemStatus,
     status,
@@ -11,7 +11,7 @@ export const registerProfile = async (req, res) => {
   } = req.body
 
   try {
-    const message = await createProfile({
+    const message = await updateProfile({
       messagemStatus,
       status,
       bio,
@@ -21,6 +21,6 @@ export const registerProfile = async (req, res) => {
     }, req.userId)
     res.status(201).json(message)
   } catch (error) {
-      return res.status(400).json({ error: "error registering" })
+      return res.status(400).json({ error: "error update profile" })
   }
 }
