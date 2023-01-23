@@ -1,7 +1,6 @@
 import { updateImgProfile } from "../../services/profiles/updateImgProfile.js"
 
 export const updateImgProfileController = async (req, res) => {
-  console.log(req.file.filename)
   const FileNameProfile = await req.file.filename
 
   try {

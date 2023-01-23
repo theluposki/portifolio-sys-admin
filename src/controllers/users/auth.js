@@ -19,7 +19,7 @@ export const Auth = async (req,res) => {
       }
 
       const token = jwt.sign({ id: existingUser.id }, config.SECRET, {
-        expiresIn: 7200
+        expiresIn: 28800
       })
 
       return res.status(200).json({
