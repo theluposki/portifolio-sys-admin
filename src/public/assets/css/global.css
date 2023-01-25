@@ -222,6 +222,7 @@ html, body {
   color: var(--primary);
   justify-content: space-between;
   font-size: .9rem;
+  min-width: 360px;
 }
 
 .checkboxs label {

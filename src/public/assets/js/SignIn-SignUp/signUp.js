@@ -15,6 +15,7 @@ export const SignUp = {
       <input class="input" tabindex="5" id="confPass" @keyup.prevent="checksIfPasswordsMatch()" type="password" id="confirmPassword" v-model="confirmPassword" placeholder="confirme sua senha">
       
       <div class="checkboxs">
+        <label>-</label>
         <label>
           Mostrar senha?
           <input type="checkbox" @change="viewPass()" v-model="viewPassword">
@@ -32,11 +33,11 @@ export const SignUp = {
   `,
   data() {
     return {
-      name: "qwe",
-      nickname: "qwe",
-      email: "qwe@mail.com",
-      password: "Supermario1234#",
-      confirmPassword: "Supermario1234#",
+      name: null,
+      nickname: null,
+      email: null,
+      password: null,
+      confirmPassword: null,
       message: "",
       messageClass: "messageClass"
     }
