@@ -5,5 +5,5 @@ import { logger } from './logger.js'
 const PORT = config.PORT || 3000
 
 app.listen(PORT, () => {
-  logger.info(`-[APP] app running at localhost:${PORT}`)
+  logger.info(`-[APP] app running at http://localhost:${PORT}`)
 })

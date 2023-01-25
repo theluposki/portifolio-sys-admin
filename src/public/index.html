@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/akar-icons-fonts" defer></script>
   <link rel="stylesheet" href="assets/css/global.css">
-  <title>Document</title>
+  <title>MyReb | Login</title>
 </head>
 <body>
   <div id="app" class="login">
     <header class="headerLogin">
-      <a href="#" class="active">Sign-In</a>
-      <a href="#">Sign-Up</a>
+      <router-link to="/" exact-active-class="active">Sign-In</router-link>
+      <router-link to="/signUp" exact-active-class="active">Sign-Up</router-link>
     </header>
-
-    <main class="mainLogin">
-      <h1>Sistema Admin</h1>
-    </main>
-
+    
+    <router-view class="mainLogin"></router-view>
+    
     <footer class="footerLogin">
-      @luposki
+      <i class="ai-chess"></i>&nbsp;
+      by&nbsp;<b>theluposki</b>
     </footer>
   </div>
 
-  <script src="index.js" type="module"></script>
+  <script src="assets/libs/vue.min.js"></script>
+  <script src="assets/libs/vuex.min.js"></script>
+  <script src="assets/libs/vue-router.js"></script>
+  <script src="assets/js/index.js" type="module"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 -- Active: 1674087741358@@127.0.0.1@3306
 SELECT * FROM users WHERE email="luposki@mail.com"; 
 
+SELECT * FROM users;
+
 SELECT * FROM profiles;
 
 SELECT * FROM profiles WHERE "userId"="166a4472-8957-4e14-adb7-9dd2347d1a87";
