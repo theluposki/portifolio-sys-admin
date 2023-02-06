@@ -20,6 +20,17 @@ export const api = async (ENDPOINT, METHOD, body, authorization=false) => {
     }
   }
 
+  if(METHOD === "get") {
+    const response = await fetch(`${config.BASE_URL}${ENDPOINT}`, {
+      method: METHOD,
+      headers: HEADERS
+    })
+  
+    const data = await response.json()
+  
+    return data
+  }
+
   const response = await fetch(`${config.BASE_URL}${ENDPOINT}`, {
     method: METHOD,
     headers: HEADERS,

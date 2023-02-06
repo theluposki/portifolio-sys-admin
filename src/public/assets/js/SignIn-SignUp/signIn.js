@@ -56,8 +56,6 @@ export const SignIn = {
       if(getPreferences) {
         const preferences = JSON.parse(getPreferences)
 
-        console.log(preferences)
-
         this.rememberUser = preferences.rememberUser
         this.email = preferences.email
         this.password = preferences.password
@@ -98,6 +96,10 @@ export const SignIn = {
 
       if(result.message) {
         this.setMessage(result.message, "messageClass success")
+        localStorage.setItem("token", result.token)
+        setInterval(() => {
+          window.location = "http://localhost:3002/app.html"
+        }, 500)
 
         if(this.rememberUser) {
           localStorage.setItem("preferences", JSON.stringify({

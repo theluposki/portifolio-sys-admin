@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/akar-icons-fonts" defer></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <title>MyReb</title>
+</head>
+<body>
+  <div id="app" class="container">
+    <header class="headerMain">
+      <router-link to="/" class="logotipo-Header">
+        <i class="ai-chess"></i> MyReb
+      </router-link>
+      <div v-if="$store.state.user" class="profileDetails">
+        <span class="pd_nameUser">
+          @{{ $store.state.user.nickname }}
+        </span>
+      </div>
+    </header>
+    
+    <div class="mainMain">
+      <aside class="asideMain">
+        <div class="user">
+          <div v-if="$store.state.user.imgProfile" class="u_images">
+            <img class="imgFrontCover" :src="'uploads/'+$store.state.user.imgFrontCover" alt="image">
+            <img class="imgProfile" :src="'uploads/'+$store.state.user.imgProfile" alt="image">
+          </div>
+        </div>
+        <router-link to="/" exact-active-class="active">Início</router-link>
+        <router-link to="/about" exact-active-class="active">Sobre</router-link>
+      </aside>
+      <router-view class="panelView"></router-view>
+    </div>
+    
+    <footer class="footerMain">
+      <i class="ai-chess"></i>&nbsp;
+      by&nbsp;<b>theluposki</b>
+    </footer>
+  </div>
+
+  <script src="assets/libs/vue.min.js"></script>
+  <script src="assets/libs/vuex.min.js"></script>
+  <script src="assets/libs/vue-router.js"></script>
+  <script src="assets/js/app.js" type="module"></script>
+</body>
+</html>
